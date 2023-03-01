@@ -110,6 +110,11 @@ def get_area(r:int):
 
     return s_out
 
+def get_str_format(s_in: str, number:int):
+    s_out = None
+    # 请在下一行编写代码，在s_in后面增加number
+    s_out = "{}{}".format(s_in, number)
+    return s_out
 
 if __name__ == "__main__":
     ret = get_variable_int()

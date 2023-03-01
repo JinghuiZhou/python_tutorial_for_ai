@@ -74,3 +74,7 @@ def test_get_area():
     import math
     ret = get_area(4)
     assert ret == 16*math.pi
+
+def test_get_str_format():
+    ret = get_str_format("I am a number: ", 9)
+    assert ret == "I am a number: 9"
