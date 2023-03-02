@@ -22,5 +22,23 @@ def get_list_exists(l:List, a):
 
     return ret
 
+def judge_equal(a, b):
+    ret = None
+    # 请在下一行编写代码，将判断a b是否相等的结果反馈
+
+    return ret
+
+def return_large(a, b):
+    ret = None
+    # 请在下一行编写代码，返回较大的一个值；若两个类型不同，则返回None
+
+    return ret
+
+def list_select_int(l:list, a):
+    l_out = None
+    # 请在下一行编写代码，将l中所有的a取出，形成新的列表并返回
+
+    return l_out
+
 if __name__ == "__main__":
     ret = get_list_len()
