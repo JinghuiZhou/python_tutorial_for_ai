@@ -65,3 +65,64 @@ def test_judge_dict_value_exists():
     assert ret == False
     ret = judge_dict_value_exists(dict(a=1, b=2), 1)
     assert ret == True
+
+def test_remove_dict_key():
+    ret = remove_dict_key(dict(a=1, b=2), "a")
+    assert ret == dict(b=2)
+    ret = remove_dict_key(dict(a=1, b=2), "b")
+    assert ret == dict(a=1)
+
+def test_update_dict():
+    ret = update_dict(dict(a=1, b=2), dict(c=1, d=3))
+    assert ret == dict(a=1, b=2, c=1, d=3)
+    ret = update_dict(dict(a=1, b=2), dict(b=1))
+    assert ret == dict(a=1, b=1)
+    ret = update_dict(dict(a=1, b=2), dict(b=1, d=3))
+    assert ret == dict(a=1, b=1, d=3)
+
+def test_dict_get():
+    ret = dict_get(dict(a=1, b=2), "a")
+    assert ret == 1
+    ret = dict_get(dict(a=1, b=2), "b")
+    assert ret == 2
+    ret = dict_get(dict(a=1, b=2), "c")
+    assert ret == "abc"
+
+def test_set_add():
+    ret = set_add(set([1,2]), set([1]))
+    assert ret == set([1,2])
+    ret = set_add(set([1,2]), set([3]))
+    assert ret == set([1, 2, 3])
+    ret = set_add(set([1,2]), set([3, 4]))
+    assert ret == set([1, 2, 3, 4])
+
+
+def test_set_remove():
+    ret = set_remove(set([1,2]), set([1]))
+    assert ret == set([2])
+    ret = set_remove(set([1,2]), set([3]))
+    assert ret == set([1,2])
+    ret = set_remove(set([1,2]), set([3, 4]))
+    assert ret == set([1,2])
+
+def test_list_add_sub():
+    ret = list_add_sub([1,2])
+    assert ret == [2,3]
+    ret = list_add_sub([-1,-2])
+    assert ret == [-2,-3]
+    ret = list_add_sub([])
+    assert ret == None
+    ret = list_add_sub([-1,0,-2])
+    assert ret == [-2,255,-3]
+
+def test_list_plus_2():
+    ret = list_plus_2(1, 2)
+    assert ret == [1]
+    ret = list_plus_2(2, 1)
+    assert ret == [2]
+    ret = list_plus_2(1, 3)
+    assert ret == [1, 3]
+    ret = list_plus_2(1, 1)
+    assert ret == [1]
+    ret = list_plus_2(0, 10)
+    assert ret == [0,2,4,6,8,10]
