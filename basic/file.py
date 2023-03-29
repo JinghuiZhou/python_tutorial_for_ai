@@ -32,9 +32,6 @@ def read_xml_file(path: str):
     # 请在下一行编写代码, path是xml文件的路径，要求以读打开该文件，若打开失败则返回None
     # 打开成功后读取xml文件，将结果编码成str返回
 
-    with open(path, 'r') as f:
-        out = xmltodict.parse(f.read())
-        out = json.dumps(out)
 
     return out
 
@@ -44,9 +41,7 @@ def write_xml_file(path: str, ds:List[Dict]):
     # 根节点为root, 且不使用属性
     # 例如[{"name":"1", "x":1},{"name":2, "x":2}] 则需要将[{"x":1},{"x":2}]输出为
     # {'root': {'item': [{'name': '1', 'value': '2'}, {'name': '2', 'value': '3'}]}}
-    xml = dicttoxml.dicttoxml(ds, custom_root='root', attr_type=False).decode('utf-8')
-    with open(path, 'w') as f:
-        f.write(xml)
+
 
     return None
 
@@ -57,16 +52,6 @@ def read_csv_file(path: str):
     # 打开成功后读取csv文件，将每行的结果使用空格分割后，作为一个元素加入到列表中
     # 例如[["1 2 3"],["4 5 6"]] 则需要将[['1', '2', '3'],['4', '5', '6']]输出
 
-    with open(path, 'r') as f:
-        reader = csv.reader(f)
-        out = [row for row in reader]
-        out_list = []
-        for row in out:
-            row[0] = row[0].split(' ')
-            # 将空格去掉
-            row[0] = [x for x in row[0] if x != '']
-            out_list.append(row[0])
-        out = out_list
 
 
 
