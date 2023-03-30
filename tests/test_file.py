@@ -23,7 +23,7 @@ def test_read_json_file():
 
     ret = read_json_file("tests/assets/1.json")
     assert json.loads(ret) == [{"name": "123","major": "ai"}]
-    ret = read_txt_file("tests/assets/_1.json")
+    ret = read_json_file("tests/assets/_1.json")
     assert ret is None
 
 def test_write_json_file():
